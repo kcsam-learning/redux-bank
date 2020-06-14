@@ -6,6 +6,11 @@ export const reducer = (state, action) => {
         ...state,
         totalAmount: state.totalAmount - action.amount
       }
+    case 'ALL_OUT_DONATION':
+      return {
+        ...state,
+        totalAmount: 0
+      }
     default:
       return state;
   }

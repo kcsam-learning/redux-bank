@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { store } from '../../store';
-import { withdrawMoney } from '../../actions';
+import { withdrawMoney, allOutDonation } from '../../actions';
 
 class ButtonGroup extends Component {
   withdrawMoney = (e) => {
     const amount = e.target.dataset.amount;
     store.dispatch(withdrawMoney(amount));
+  }
+
+  allOutDonation () {
+    store.dispatch(allOutDonation);
   }
 
   render() {
@@ -16,7 +20,7 @@ class ButtonGroup extends Component {
           <button data-amount="5000" onClick={this.withdrawMoney}>WITHDRAW $5,000</button>
         </section>
 
-        <p className="App__giveaway">Give away all your cash to charity</p>
+        <p className="App__giveaway" onClick={this.allOutDonation}>Give away all your cash to charity</p>
       </div>
     )
   }
